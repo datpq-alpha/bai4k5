@@ -9,9 +9,9 @@ genai.configure(api_key=st.secrets['GOOGLE_API_KEY'])
 model = genai.GenerativeModel('gemini-2.5-flash')
 # DL
 csv_content = '''Mien,San_luong,Nam,Don_vi_tinh
-Bắc,150000,2025,tấn
-Trung,100000,2025,tấn
-Nam,200000,2025,tấn
+Bắc,13,2025,triệu tấn
+Trung,7,2025,triệu tấn
+Nam,24,2025,triệu tấn
 '''
 with open('pro5.4.csv', 'w', encoding='utf-8') as f:
     f.write(csv_content)
@@ -45,7 +45,7 @@ st.vega_lite_chart(
 )
 
 prompt = f"""
-Đóng vai chuyên gia phân tích Dữ liệu chuyên nghiệp, hãy phân tích bộ dữ liệu sau: {csv_content}. Giọng văn thân thiện, chuyên nghiệp, 150 - 200 từ
+Vai trò chuyên gia phân tích Dữ liệu chuyên nghiệp, hãy phân tích bộ dữ liệu sau: {csv_content} và đưa ra chính sách phù hợp. Giọng văn thân thiện, chuyên nghiệp, 250-300 từ
 """
 try:
     r = model.generate_content(prompt)
